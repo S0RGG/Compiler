@@ -1,0 +1,33 @@
+PROGRAM
+|+-WHILECONSTRUCTION
+|   |+-LESS
+|   |   |+-IDENTIFIER : a
+|   |   |+-IDENTIFIER : b
+|   |+-BLOCK
+|   |   |+-WHILECONSTRUCTION
+|   |   |   |+-IDENTIFIER : afaf
+|   |   |   |+-BLOCK
+|   |   |   |   |+-IFCONSTRUCTION
+|   |   |   |   |   |+-LESS
+|   |   |   |   |   |   |+-IDENTIFIER : c
+|   |   |   |   |   |   |+-IDENTIFIER : d
+|   |   |   |   |   |+-BLOCK
+|   |   |   |   |   |   |+-ADD
+|   |   |   |   |   |   |   |+-IDENTIFIER : a
+|   |   |   |   |   |   |   |+-INTNUMBER : 5
+|   |   |   |   |   |   |+-WHILECONSTRUCTION
+|   |   |   |   |   |   |   |+-LESS
+|   |   |   |   |   |   |   |   |+-IDENTIFIER : a
+|   |   |   |   |   |   |   |   |+-IDENTIFIER : b
+|   |   |   |   |   |   |   |+-BLOCK
+|   |   |   |   |   |   |   |   |+-WHILECONSTRUCTION
+|   |   |   |   |   |   |   |   |   |+-IDENTIFIER : afaf
+|   |   |   |   |   |   |   |   |   |+-BLOCK
+|   |   |   |   |   |   |   |   |   |   |+-IFCONSTRUCTION
+|   |   |   |   |   |   |   |   |   |   |   |+-LESS
+|   |   |   |   |   |   |   |   |   |   |   |   |+-IDENTIFIER : c
+|   |   |   |   |   |   |   |   |   |   |   |   |+-IDENTIFIER : d
+|   |   |   |   |   |   |   |   |   |   |   |+-BLOCK
+|   |   |   |   |   |   |   |   |   |   |   |   |+-ADD
+|   |   |   |   |   |   |   |   |   |   |   |   |   |+-IDENTIFIER : a
+|   |   |   |   |   |   |   |   |   |   |   |   |   |+-INTNUMBER : 5

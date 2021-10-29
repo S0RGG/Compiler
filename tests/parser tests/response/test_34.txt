@@ -1,0 +1,9 @@
+PROGRAM
+|+-WHILECONSTRUCTION
+|   |+-LESS
+|   |   |+-IDENTIFIER : a
+|   |   |+-IDENTIFIER : b
+|   |+-BLOCK
+|   |   |+-ADD
+|   |   |   |+-IDENTIFIER : a
+|   |   |   |+-INTNUMBER : 3

@@ -1,1 +1,0 @@
-Lexer error: Unexpected symbol: $ in possition (1, 1)

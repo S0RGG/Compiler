@@ -1,0 +1,4 @@
+(1, 5)	string	'gh'	gh
+(1, 6)	plus	+	
+(1, 16)	string	'fjfhsksj'	fjfhsksj
+(1, 16)	EOF	EOF	

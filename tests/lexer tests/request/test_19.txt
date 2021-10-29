@@ -1,0 +1,10 @@
+if a+a:
+    b+c
+    d+e
+    if e:
+        g+e
+        if a+a:
+            b+c
+            d+e
+            if e:
+                g+e

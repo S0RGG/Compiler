@@ -1,0 +1,8 @@
+while a<b:
+    while afaf:
+        if c<d:
+            a+5
+            while a<b:
+                while afaf:
+                    if c<d:
+                        a+5

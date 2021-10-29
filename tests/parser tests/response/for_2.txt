@@ -1,6 +1,0 @@
-PROGRAM
-|+-ADD
-|   |+-INTNUMBER : 1
-|   |+-MUL
-|   |   |+-IDENTIFIER : a
-|   |   |+-FLOATNUMBER : 353.4

@@ -1,4 +1,0 @@
-PROGRAM
-|+-REM
-|   |+-IDENTIFIER : a
-|   |+-INTNUMBER : 1

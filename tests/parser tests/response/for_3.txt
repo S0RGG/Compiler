@@ -1,6 +1,0 @@
-PROGRAM
-|+-MUL
-|   |+-FLOATNUMBER : 21.1
-|   |+-MUL
-|   |   |+-INTNUMBER : 2
-|   |   |+-INTNUMBER : 3

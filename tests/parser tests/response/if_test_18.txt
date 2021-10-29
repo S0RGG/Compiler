@@ -1,0 +1,15 @@
+PROGRAM
+|+-IFCONSTRUCTION
+|   |+-LESS
+|   |   |+-IDENTIFIER : a
+|   |   |+-IDENTIFIER : b
+|   |+-BLOCK
+|   |   |+-ADD
+|   |   |   |+-INTNUMBER : 2
+|   |   |   |+-INTNUMBER : 2
+|   |   |+-WHILECONSTRUCTION
+|   |   |   |+-IDENTIFIER : fafa
+|   |   |   |+-BLOCK
+|   |   |   |   |+-ADD
+|   |   |   |   |   |+-INTNUMBER : 3
+|   |   |   |   |   |+-INTNUMBER : 3

@@ -1,0 +1,8 @@
+(1, 2)	integer	1	1
+(1, 4)	minus	-	
+(1, 6)	lrbrack	(	
+(1, 7)	integer	2	2
+(1, 9)	plus	+	
+(1, 11)	integer	2	2
+(1, 12)	rrbrack	)	
+(1, 12)	EOF	EOF	

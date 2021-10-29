@@ -1,9 +1,0 @@
-PROGRAM
-|+-IFCONSTRUCTION
-|   |+-GREATER
-|   |   |+-IDENTIFIER : a
-|   |   |+-IDENTIFIER : b
-|   |+-BLOCK
-|+-ADD
-|   |+-INTNUMBER : 2
-|   |+-INTNUMBER : 2

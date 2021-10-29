@@ -1,9 +1,0 @@
-if a<b:
-    2 + 2
-    while fafa:
-        3 + 3
-
-while a<b:
-    while afaf:
-        if c<d:
-            a+5

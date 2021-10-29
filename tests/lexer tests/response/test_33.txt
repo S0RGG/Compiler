@@ -1,0 +1,12 @@
+(1, 6)	while	while	
+(1, 8)	id	a	
+(1, 9)	less	<	
+(1, 10)	id	b	
+(1, 11)	colon	:	
+(2, 1)	newline	
+	
+(2, 5)	tab	    	
+(2, 6)	id	a	
+(2, 8)	plus	+	
+(2, 10)	integer	3	3
+(2, 10)	EOF	EOF	

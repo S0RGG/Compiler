@@ -1,0 +1,35 @@
+PROGRAM
+|+-IFCONSTRUCTION
+|   |+-ADD
+|   |   |+-IDENTIFIER : a
+|   |   |+-IDENTIFIER : a
+|   |+-BLOCK
+|   |   |+-ADD
+|   |   |   |+-IDENTIFIER : b
+|   |   |   |+-IDENTIFIER : c
+|   |   |+-ADD
+|   |   |   |+-IDENTIFIER : d
+|   |   |   |+-IDENTIFIER : e
+|   |   |+-IFCONSTRUCTION
+|   |   |   |+-IDENTIFIER : e
+|   |   |   |+-BLOCK
+|   |   |   |   |+-ADD
+|   |   |   |   |   |+-IDENTIFIER : g
+|   |   |   |   |   |+-IDENTIFIER : e
+|   |   |   |   |+-IFCONSTRUCTION
+|   |   |   |   |   |+-ADD
+|   |   |   |   |   |   |+-IDENTIFIER : a
+|   |   |   |   |   |   |+-IDENTIFIER : a
+|   |   |   |   |   |+-BLOCK
+|   |   |   |   |   |   |+-ADD
+|   |   |   |   |   |   |   |+-IDENTIFIER : b
+|   |   |   |   |   |   |   |+-IDENTIFIER : c
+|   |   |   |   |   |   |+-ADD
+|   |   |   |   |   |   |   |+-IDENTIFIER : d
+|   |   |   |   |   |   |   |+-IDENTIFIER : e
+|   |   |   |   |   |   |+-IFCONSTRUCTION
+|   |   |   |   |   |   |   |+-IDENTIFIER : e
+|   |   |   |   |   |   |   |+-BLOCK
+|   |   |   |   |   |   |   |   |+-ADD
+|   |   |   |   |   |   |   |   |   |+-IDENTIFIER : g
+|   |   |   |   |   |   |   |   |   |+-IDENTIFIER : e
