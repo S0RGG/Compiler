@@ -1,0 +1,6 @@
+(1, 4)	for	for	
+(1, 6)	id	a	
+(1, 9)	in	in	
+(1, 11)	id	b	
+(1, 12)	colon	:	
+(1, 12)	EOF	EOF	

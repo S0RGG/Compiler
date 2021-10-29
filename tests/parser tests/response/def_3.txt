@@ -1,0 +1,6 @@
+PROGRAM
+|+-DIV
+|   |+-ADD
+|   |   |+-INTNUMBER : 5
+|   |   |+-INTNUMBER : 6
+|   |+-INTNUMBER : 1

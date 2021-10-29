@@ -1,0 +1,8 @@
+PROGRAM
+|+-DIV
+|   |+-INTNUMBER : 5
+|   |+-SUB
+|   |   |+-INTNUMBER : 1
+|   |   |+-ADD
+|   |   |   |+-INTNUMBER : 2
+|   |   |   |+-INTNUMBER : 3

@@ -1,0 +1,10 @@
+PROGRAM
+|+-SUB
+|   |+-ADD
+|   |   |+-SUB
+|   |   |   |+-IDENTIFIER : a
+|   |   |   |+-IDENTIFIER : b
+|   |   |+-INTNUMBER : 2
+|   |+-ADD
+|   |   |+-IDENTIFIER : g
+|   |   |+-FLOATNUMBER : 9.8

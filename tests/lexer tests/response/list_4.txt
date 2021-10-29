@@ -1,0 +1,4 @@
+(1, 8)	string	'3ijd3'	3ijd3
+(2, 1)	newline	
+	
+(2, 1)	EOF	EOF	

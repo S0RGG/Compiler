@@ -1,0 +1,4 @@
+PROGRAM
+|+-DIV
+|   |+-IDENTIFIER : a
+|   |+-INTNUMBER : 1

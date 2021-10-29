@@ -1,0 +1,11 @@
+(1, 2)	integer	3	3
+(2, 1)	newline	
+	
+(2, 3)	integer	16	16
+(3, 1)	newline	
+	
+(3, 4)	float	2.5	2.5
+(4, 1)	newline	
+	
+(4, 5)	float	15.0	15.0
+(4, 5)	EOF	EOF	

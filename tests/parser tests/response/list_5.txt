@@ -1,0 +1,6 @@
+PROGRAM
+|+-ADD
+|   |+-IDENTIFIER : a__a
+|   |+-SUB
+|   |   |+-IDENTIFIER : _a
+|   |   |+-IDENTIFIER : a_

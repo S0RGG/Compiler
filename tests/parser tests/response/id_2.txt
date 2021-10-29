@@ -1,0 +1,10 @@
+PROGRAM
+|+-DIV
+|   |+-IDENTIFIER : a
+|   |+-ADD
+|   |   |+-INTNUMBER : 2
+|   |   |+-MUL
+|   |   |   |+-INTNUMBER : 3
+|   |   |   |+-ADD
+|   |   |   |   |+-INTNUMBER : 4
+|   |   |   |   |+-INTNUMBER : 5

@@ -1,0 +1,6 @@
+PROGRAM
+|+-ADD
+|   |+-INTNUMBER : 1
+|   |+-ADD
+|   |   |+-INTNUMBER : 2
+|   |   |+-INTNUMBER : 3

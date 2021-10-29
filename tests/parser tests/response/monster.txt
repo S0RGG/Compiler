@@ -1,0 +1,28 @@
+PROGRAM
+|+-SUB
+|   |+-INTNUMBER : 5
+|   |+-ADD
+|   |   |+-ADD
+|   |   |   |+-SUB
+|   |   |   |   |+-SUB
+|   |   |   |   |   |+-SUB
+|   |   |   |   |   |   |+-INTNUMBER : 4
+|   |   |   |   |   |   |+-INTNUMBER : 3
+|   |   |   |   |   |+-INTNUMBER : 2
+|   |   |   |   |+-INTNUMBER : 1
+|   |   |   |+-INTNUMBER : 1
+|   |   |+-ADD
+|   |   |   |+-INTNUMBER : 2
+|   |   |   |+-ADD
+|   |   |   |   |+-INTNUMBER : 3
+|   |   |   |   |+-ADD
+|   |   |   |   |   |+-INTNUMBER : 4
+|   |   |   |   |   |+-SUB
+|   |   |   |   |   |   |+-INTNUMBER : 5
+|   |   |   |   |   |   |+-SUB
+|   |   |   |   |   |   |   |+-ADD
+|   |   |   |   |   |   |   |   |+-INTNUMBER : 2
+|   |   |   |   |   |   |   |   |+-INTNUMBER : 1
+|   |   |   |   |   |   |   |+-SUB
+|   |   |   |   |   |   |   |   |+-INTNUMBER : 1
+|   |   |   |   |   |   |   |   |+-INTNUMBER : 5

@@ -1,0 +1,10 @@
+PROGRAM
+|+-DIV
+|   |+-ADD
+|   |   |+-INTNUMBER : 1
+|   |   |+-ADD
+|   |   |   |+-INTNUMBER : 10
+|   |   |   |+-SUB
+|   |   |   |   |+-INTNUMBER : 11
+|   |   |   |   |+-INTNUMBER : 1231
+|   |+-INTNUMBER : 2

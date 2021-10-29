@@ -1,0 +1,11 @@
+(1, 3)	string	''	
+(2, 1)	newline	
+	
+(2, 4)	string	'a'	a
+(3, 1)	newline	
+	
+(3, 8)	string	'a@$12'	a@$12
+(4, 1)	newline	
+	
+(4, 11)	string	'fxf___ds'	fxf___ds
+(4, 11)	EOF	EOF	

@@ -1,0 +1,12 @@
+(1, 2)	integer	1	1
+(1, 4)	plus	+	
+(1, 6)	integer	6	6
+(1, 7)	div	/	
+(1, 9)	id	ad	
+(1, 11)	minus	-	
+(1, 14)	id	ad	
+(1, 15)	mult	*	
+(1, 17)	id	ed	
+(1, 19)	plus	+	
+(1, 21)	integer	4	4
+(1, 21)	EOF	EOF	

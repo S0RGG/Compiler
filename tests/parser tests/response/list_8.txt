@@ -1,0 +1,6 @@
+PROGRAM
+|+-ADD
+|   |+-IDENTIFIER : g
+|   |+-SUB
+|   |   |+-INTNUMBER : 5
+|   |   |+-INTNUMBER : 31
