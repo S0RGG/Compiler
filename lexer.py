@@ -147,6 +147,7 @@ class Lexer:
                     self.get_next_char()
             # whitespaces and tabulation
             elif self.current_char in [' ', '\t']:
+                col = self.col
                 match self.current_char:
                     case '\t':
                         self.state == Lexer.SYMBOLS[self.current_char]
@@ -154,14 +155,13 @@ class Lexer:
                         self.get_next_char()
                     case _:
                         tabulation = ""
-                        col = self.col
                         while self.current_char == ' ':
                             tabulation += self.current_char
                             self.get_next_char()
                             if len(tabulation) == self.n_tabs: #and col == 1: # if new line
                                 self.state = Lexer.SYMBOLS[tabulation]
                                 self.code = tabulation
-                                break
+                                # break
                         if len(tabulation) != self.n_tabs and len(tabulation) > 1: # if new line
                             if col == 1:
                                 self.error(f'Incorrect indent')
