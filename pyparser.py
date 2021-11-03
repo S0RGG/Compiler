@@ -171,13 +171,17 @@ class Parser:
         # else:
         #     self.error("Expected indent")
         instructions = []
+        indent_len = len(self.lex.code)
         while self.lex.state == Lexer.TABULATION:
-            for _ in range(depth):
-                if self.lex.state == Lexer.TABULATION:
+            if indent_len == len(self.lex.code):
+                for _ in range(depth):
+                    if self.lex.state == Lexer.TABULATION:
+                        self.lex.get_next_token()
+                instructions += [self.instruction(depth)]
+                while self.lex.state == Lexer.NEWLINE:
                     self.lex.get_next_token()
-            instructions += [self.instruction(depth)]
-            while self.lex.state == Lexer.NEWLINE:
-                self.lex.get_next_token()
+            else:
+                self.error("Incorrect indent")
         return Node(Parser.BLOCK, childrens=instructions)
 
     def instruction(self, depth=0):

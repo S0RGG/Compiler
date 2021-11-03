@@ -83,7 +83,6 @@ class Lexer:
         'False'     : FALSE, 
     }
 
-    n_tabs = 4
     SYMBOLS = {
         '='         : SET,
         '+'         : PLUS,
@@ -95,8 +94,6 @@ class Lexer:
         ')'         : RRBRACKET,
         '['         : LSBRACKET,
         ']'         : RSBRACKET,
-        '\t'        : TABULATION,
-        ' '*n_tabs  : TABULATION,
         ','         : COMMA,
         ':'         : COLON,
         '<'         : LESS,
@@ -148,23 +145,21 @@ class Lexer:
             # whitespaces and tabulation
             elif self.current_char in [' ', '\t']:
                 col = self.col
-                match self.current_char:
-                    case '\t':
-                        self.state == Lexer.SYMBOLS[self.current_char]
-                        self.code = self.current_char
-                        self.get_next_char()
-                    case _:
+                match col:
+                    case 1:
                         tabulation = ""
                         while self.current_char == ' ':
                             tabulation += self.current_char
                             self.get_next_char()
-                            if len(tabulation) == self.n_tabs: #and col == 1: # if new line
-                                self.state = Lexer.SYMBOLS[tabulation]
-                                self.code = tabulation
+                            # if len(tabulation) == self.n_tabs: #and col == 1: # if new line
+                        self.state = Lexer.TABULATION
+                        self.code = tabulation
                                 # break
-                        if len(tabulation) != self.n_tabs and len(tabulation) > 1: # if new line
-                            if col == 1:
-                                self.error(f'Incorrect indent')
+                        # if len(tabulation) != self.n_tabs and len(tabulation) > 1: # if new line
+                        #     if col == 1:
+                        #         self.error(f'Incorrect indent')
+                    case _:
+                        self.get_next_char()
             # string
             elif self.current_char in ["'", '"']:
                 self.state = Lexer.STRING
