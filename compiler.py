@@ -9,12 +9,12 @@ argparser.add_argument('-f', '--file', action='store', help='specify the path to
 flags = argparser.parse_args()
 
 # DEBUG
-# flags.mode = "parser"
-# flags.file = "c:/Users/Ilcha/OneDrive/Рабочий стол/compiler-master/tests/lexer tests/request/if.txt"
+flags.mode = "lexer"
+flags.file = "C:/Users/Ilcha/OneDrive/Рабочий стол/compiler-master/tests/parser tests/request/while_test_36.txt"
 
 match flags.mode:
     case "lexer":
-        lex = Lexer(flags.file) #создаём лексер/передаём
+        lex = Lexer(flags.file)
         state = None
         while state != Lexer.EOF:
             print(lex.get_next_token())

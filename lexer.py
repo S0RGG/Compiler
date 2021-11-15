@@ -1,7 +1,9 @@
 import sys
+from collections import deque
+from token import NEWLINE
 
 class Lexem:
-    def __init__(self, row, col, type, code, value):
+    def __init__(self, row, col, type, code=None, value=None):
         self.row, self.col, self.type, self.code, self.value = row, col, type, code, value
     
     def __repr__(self):
@@ -16,6 +18,10 @@ class Lexer:
         self.state = None
         self.current_char = None
         self.row, self.col = 1,0
+        self.stack = deque()
+        self.stack.append(0)
+        self.current_dedent = 0
+        self.indent_checked = False
 
     # types of lexemes
     INTNUMBER, FLOATNUMBER, IDENTIFIER, STRING,\
@@ -23,7 +29,7 @@ class Lexer:
     PRINT, RANGE, TRUE, FALSE,\
     SET, PLUS, MINUS, MULTIPLY, DIVISION, REMAINDER,\
     LRBRACKET, RRBRACKET, LSBRACKET, RSBRACKET,\
-    TABULATION, COMMA, COLON, LESS, GREATER, QUOTE1, QUOTE2, DECIMALPOINT, NEWLINE, EOF, BREAK = range(37)
+    INDENT, DEDENT, COMMA, COLON, LESS, GREATER, QUOTE1, QUOTE2, DECIMALPOINT, NEWLINE, EOF, BREAK = range(38)
 
     PRESENTATION = {
         INTNUMBER   : "integer",
@@ -52,7 +58,8 @@ class Lexer:
         RRBRACKET   : "rrbrack",
         LSBRACKET   : "lsbrack",
         RSBRACKET   : "rsbrack",
-        TABULATION  : "tab",
+        INDENT      : "indent",
+        DEDENT      : "dedent",
         COMMA       : "comma",
         COLON       : "colon",
         LESS        : "less",
@@ -121,10 +128,14 @@ class Lexer:
         if self.current_char == '\n':
             self.row += 1
             self.col = 0
+        
         self.current_char = self.file.read(1)
         self.col += 1
 
     def get_next_token(self):
+        if self.state == Lexer.SYMBOLS['\n']:
+            while self.current_char == '\n':
+                self.get_next_char()
         self.state = None
         self.code = None
         self.value = ""
@@ -132,34 +143,48 @@ class Lexer:
             if self.current_char == None:
                 self.get_next_char()
             # end of file
-            if len(self.current_char) == 0:
+            if self.current_dedent > 0:
+                self.current_dedent -= 1
+                return Lexem(self.row, self.col, Lexer.DEDENT)
+            elif len(self.current_char) == 0:
+                if len(self.stack) > 1:
+                    self.stack.pop()
+                    return Lexem(self.row, self.col, Lexer.DEDENT)
                 self.state = Lexer.EOF
                 self.code = "EOF"
                 self.value = ""
+                while 0 < self.stack[-1]:
+                        self.stack.pop()
+                        self.current_dedent += 1
             # comment
             elif self.current_char == '#':
                 while self.current_char not in ['\n', '']:
                     self.get_next_char()
                 if self.current_char == "\n":
                     self.get_next_char()
-            # whitespaces and tabulation
-            elif self.current_char in [' ', '\t']:
-                col = self.col
-                match col:
-                    case 1:
-                        tabulation = ""
-                        while self.current_char == ' ':
-                            tabulation += self.current_char
-                            self.get_next_char()
-                            # if len(tabulation) == self.n_tabs: #and col == 1: # if new line
-                        self.state = Lexer.TABULATION
-                        self.code = tabulation
-                                # break
-                        # if len(tabulation) != self.n_tabs and len(tabulation) > 1: # if new line
-                        #     if col == 1:
-                        #         self.error(f'Incorrect indent')
-                    case _:
-                        self.get_next_char()
+            # indent and dedent
+            elif self.col == 1 and not self.indent_checked:
+                self.indent_checked = True
+                indent = ""
+                while self.current_char == ' ':
+                    indent += self.current_char
+                    self.get_next_char()
+                if self.current_char == '\n':
+                    indent = ''
+                if len(indent) > self.stack[-1]:
+                    self.state = Lexer.INDENT
+                    self.code = indent
+                    self.stack.append(len(indent))
+                elif len(indent) < self.stack[-1]:
+                    while len(indent) < self.stack[-1]:
+                        self.stack.pop()
+                        self.current_dedent += 1
+                    if len(indent) != self.stack[-1]:
+                        self.error("Invalid indentation")
+                else:
+                    return self.get_next_token()
+            elif self.current_char == ' ':
+                self.get_next_char()
             # string
             elif self.current_char in ["'", '"']:
                 self.state = Lexer.STRING
@@ -223,4 +248,5 @@ class Lexer:
                     self.code = identifier
             else:
                 self.error(f'Unexpected symbol: {self.current_char}')
+        self.indent_checked = False
         return Lexem(self.row, self.col, self.state, self.code, self.value)
