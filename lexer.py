@@ -133,9 +133,6 @@ class Lexer:
         self.col += 1
 
     def get_next_token(self):
-        if self.state == Lexer.SYMBOLS['\n']:
-            while self.current_char == '\n':
-                self.get_next_char()
         self.state = None
         self.code = None
         self.value = ""
@@ -145,10 +142,12 @@ class Lexer:
             # end of file
             if self.current_dedent > 0:
                 self.current_dedent -= 1
+                self.state = Lexer.DEDENT
                 return Lexem(self.row, self.col, Lexer.DEDENT)
             elif len(self.current_char) == 0:
                 if len(self.stack) > 1:
                     self.stack.pop()
+                    self.state = Lexer.DEDENT
                     return Lexem(self.row, self.col, Lexer.DEDENT)
                 self.state = Lexer.EOF
                 self.code = "EOF"
@@ -171,7 +170,7 @@ class Lexer:
                     self.get_next_char()
                 if self.current_char == '\n':
                     indent = ''
-                if len(indent) > self.stack[-1]:
+                elif len(indent) > self.stack[-1]:
                     self.state = Lexer.INDENT
                     self.code = indent
                     self.stack.append(len(indent))

@@ -9,8 +9,8 @@ argparser.add_argument('-f', '--file', action='store', help='specify the path to
 flags = argparser.parse_args()
 
 # DEBUG
-flags.mode = "lexer"
-flags.file = "C:/Users/Ilcha/OneDrive/Рабочий стол/compiler-master/tests/parser tests/request/while_test_36.txt"
+# flags.mode = "parser"
+# flags.file = "C:/Users/Ilcha/OneDrive/Рабочий стол/compiler-master/tests/parser tests/request/while_test_36.txt"
 
 match flags.mode:
     case "lexer":

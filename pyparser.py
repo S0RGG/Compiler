@@ -162,29 +162,18 @@ class Parser:
             case _:
                 return left
     
-    def block(self, depth=1):
-        # if self.lex.state == Lexer.TABULATION:
-        #     instructions = []
-        #     # while self.lex.state == Lexer.TABULATION:
-        #     #     self.lex.get_next_token()
-        #     instructions += [self.instruction(depth)]
-        # else:
-        #     self.error("Expected indent")
+    def block(self):
         instructions = []
-        indent_len = len(self.lex.code)
-        while self.lex.state == Lexer.TABULATION:
-            if indent_len == len(self.lex.code):
-                for _ in range(depth):
-                    if self.lex.state == Lexer.TABULATION:
-                        self.lex.get_next_token()
-                instructions += [self.instruction(depth)]
-                while self.lex.state == Lexer.NEWLINE:
-                    self.lex.get_next_token()
-            else:
-                self.error("Incorrect indent")
+        while self.lex.state != Lexer.DEDENT:
+            if self.lex.state == Lexer.INDENT:
+                self.lex.get_next_token()
+            instructions += [self.instruction()]
+            while self.lex.state == Lexer.NEWLINE:
+                self.lex.get_next_token()
+        self.lex.get_next_token()
         return Node(Parser.BLOCK, childrens=instructions)
 
-    def instruction(self, depth=0):
+    def instruction(self):
         match self.lex.state:
             # IF pattern (if FORMULA: \n BLOCK)
             case Lexer.IF:
@@ -194,7 +183,7 @@ class Parser:
                     self.lex.get_next_token()
                     if self.lex.state == Lexer.NEWLINE:
                         self.lex.get_next_token()
-                        return Node(Parser.IFCONSTRUCTION, childrens=[statement, self.block(depth+1)])
+                        return Node(Parser.IFCONSTRUCTION, childrens=[statement, self.block()])
                     else:
                         self.error("Expected new line")
                 else:
@@ -207,7 +196,7 @@ class Parser:
                     self.lex.get_next_token()
                     if self.lex.state == Lexer.NEWLINE:
                         self.lex.get_next_token()
-                        return Node(Parser.WHILECONSTRUCTION, childrens=[statement, self.block(depth+1)])
+                        return Node(Parser.WHILECONSTRUCTION, childrens=[statement, self.block()])
                     else:
                         self.error("Expected new line")
                 else:
